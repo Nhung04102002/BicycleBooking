@@ -1,0 +1,39 @@
+#user{
+    display: flex;
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: aliceblue;
+    border-radius: 10px 10px 0 0;
+}
+
+#iUser{
+    font-size: 50px;
+    margin: 30px;
+}
+
+.pUser{
+    font-size: 16px;
+    margin: 0;
+}
+
+#abc{
+    margin: 60px 0 0 0;
+}
+
+#pUser{
+    margin: 30px 0;
+}
+
+button {
+    height: 60px;
+    padding-left: 20px;
+}
+
+#list{
+    padding: 15px;
+}
+
+h6{
+    margin: 0;
+    margin: 0px 0px 15px 4px;
+}

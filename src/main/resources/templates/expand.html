@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expand</title>
+  <link rel="stylesheet" href="/style/map.css">
+  <link rel="stylesheet" href="/style/wallet.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<style>
+  #list > a{
+    height: 60px;
+    padding-top: 17px;
+  }
+  #logout, #deleteAcc{
+    position: absolute;
+    z-index:5;
+    background-color:rgba(0, 0, 0, 0.5);
+    text-align:center;
+    padding: 20px;
+    display: none;
+    width: 410px;
+    height: 913px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn1 > button, .btn1 > a > button {
+    width: 100px;
+    height: 40px;
+  }
+  .btn1{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    padding: 0 20px;
+  }
+</style>
+<body>
+<div id="container" th:object="${user}">
+  <div id="logout">
+    <div style="background-color: white; width:330px; padding:20px; border-radius:10px;" class="shadow-lg">
+      <h4 class="mb-2">Đăng xuất</h4>
+      <h6 class="mb-4">Bạn có muốn đăng xuất không?</h6>
+      <div class="btn1">
+        <a href="/login"><button class="btn btn-danger">Đồng ý</button></a>
+        <button class="btn btn-light" onclick="closeLogout()">Huỷ bỏ</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="deleteAcc">
+    <div style="background-color: white; width:330px; padding:20px;border-radius:10px;" class="shadow-lg">
+      <h4 class="mb-2">Xoá tài khoản</h4>
+      <h6 class="mb-4">Bạn chắc chắn muốn xoá tài khoản?</h6>
+      <div class="btn1">
+        <a th:href="@{'/'+${user.getId()}+'/expand/delete'}"><button class="btn btn-danger">Đồng ý</button></a>
+        <button class="btn btn-light" onclick="closeDelete()">Huỷ bỏ</button>
+      </div>
+    </div>
+  </div>
+  <div id="user" class="border-bottom shadow-sm">
+    <div><i class="fa-solid fa-circle-user" id="iUser"></i></div>
+    <div id="pUser">
+      <p class="pUser" th:text="${user.getFullName()}"></p>
+      <p class="pUser" th:text="${user.getPhone()}"></p>
+    </div>
+  </div>
+
+  <div class="list-group" id="list">
+    <h6>Settings</h6>
+    <a th:href="@{'/'+${user.getId()}+'/expand/update'}" class="list-group-item list-group-item-action">Update infomation</a>
+    <a th:href="@{'/'+${user.getId()}+'/expand/changePass'}" class="list-group-item list-group-item-action">Change password</a>
+    <button class="list-group-item list-group-item-action" onclick="openDelete()">Delete account</button>
+    <button type="button" class="list-group-item list-group-item-action" onclick="openLogout()">Sign out</button>
+  </div>
+
+  <img style="margin-top: 127px;" src="/dapxe.png" width="410">
+
+  <footer class="row align-items-end text-center border shadow-lg" id="abc">
+
+    <a class="col" id="a1" th:href="@{'/'+${user.getId()}+'/homepage'}">
+      <i class="fa-solid fa-house" id="i1"></i>
+      <p id="p1">Home</p>
+    </a>
+    <a class="col" id="a2" th:href="@{'/'+${user.getId()}+'/map'}">
+      <i class="fa-solid fa-map-location-dot" id="i2"></i>
+      <p id="p2">Location</p>
+    </a>
+    <a class="col" id="a3" th:href="@{'/'+${user.getId()}+'/code'}">
+      <i class="fa-solid fa-barcode"></i>
+      <p>Code</p>
+    </a>
+    <a class="col" id="a4" th:href="@{'/'+${user.getId()}+'/wallet'}">
+      <i class="fa-solid fa-wallet"></i>
+      <p>Wallet</p>
+    </a>
+    <a class="col" id="a5" th:href="@{'/'+${user.getId()}+'/expand'}">
+      <i class="fa-solid fa-bars"></i>
+      <p>Expand</p>
+    </a>
+  </footer>
+
+
+</div>
+<script src="https://kit.fontawesome.com/5a213e1813.js" crossorigin="anonymous"></script>
+<script>
+  function openLogout() {
+    let x = document.getElementById("logout");
+    x.style.display = "flex";
+  }
+  function closeLogout() {
+    let x = document.getElementById("logout");
+    x.style.display = "none";
+  }
+
+  function openDelete() {
+    let x = document.getElementById("deleteAcc");
+    x.style.display = "flex";
+  }
+  function closeDelete() {
+    let x = document.getElementById("deleteAcc");
+    x.style.display = "none";
+  }
+</script>
+</body>
+</html>

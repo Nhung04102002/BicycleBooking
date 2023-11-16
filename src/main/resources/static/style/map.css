@@ -1,0 +1,126 @@
+body {
+    margin: 0 auto;
+}
+
+#container{
+    width: 412px;
+    margin: 10px auto;
+    height: 915px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid gray;
+}
+
+iframe{
+    position: absolute;
+    z-index: 1;
+}
+
+#abc{
+    position: sticky;
+    top: 100%;
+    z-index: 1;
+    height: 60px;
+    padding-top: 7px;
+    background-color: aliceblue;
+    width: 408px;
+    margin: 851px 0 0 0;
+    border-radius: 0 0 10px 10px;
+}
+
+#find{
+    position: absolute;
+    z-index: 2;
+    background-color: aliceblue;
+    width: 408px;
+    height: 60px;
+
+}
+
+button {
+    display: flex;
+    width: 90%;
+    padding-top: 5px;
+    height: 34px;
+    border: 0.5px lightgrey solid;
+    background-color: white;
+}
+
+p, i{
+    font-size: 13px;
+}
+
+button > i{
+    font-size: 15px;
+    margin: 5px 5px;
+    color: gray;
+}
+
+button > p{
+    margin-left: 5px;
+    margin-top: 2px;
+    color: gray;
+}
+
+
+footer > a{
+    text-decoration: none;
+}
+
+a:visited, a:link > p {
+    color: black;
+}
+
+a:visited, a:link > i {
+    color: black;
+}
+
+
+a:hover, a:active > p {
+    color: blue;
+}
+
+a:hover, a:active > i {
+    color: blue;
+}
+
+#enter {
+    margin-top: 250px;
+}
+
+label, input{
+    width: 85%;
+    margin: 30px;
+    height: 40px;
+}
+
+#submit{
+    height: 40px;
+    color: aliceblue;
+    background-color: blue;
+    border: 0;
+    border-radius: 7px;
+    margin-top: 100px;
+}
+
+#code{
+    border: 0px;
+    border-bottom: 1px solid;
+    background-color: aliceblue;
+    padding-left: 10px;
+}
+
+#hCode{
+    display: flex;
+    height: 60px;
+    padding-top: 12px;
+}
+
+#hCode > h4{
+    margin: 0px 110px 0 150px;
+}
+
+#hCode > a > i{
+    font-size: 20px;
+    margin-top: 8px;
+}

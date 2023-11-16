@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Bike</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        #container{
+            width: 412px;
+            margin: 10px auto;
+            height: 915px;
+            border-radius: 10px;
+            border: 2px solid gray;
+        }
+        button{
+            width: 100%;
+            height: 50px;
+        }
+        i{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div id="container" style="text-align: center; padding: 20px;">
+    <div class="row align-middle">
+        <div class="col-1 pt-1"><a th:href="@{'/'+${user.getId()}+'/code'}"><i class="fa-solid fa-chevron-left"></i></a></div>
+        <div class="col text-start">
+            <div class="d-flex text-primary">
+                <h4 class="me-1">Trạm</h4><h4 th:text="${bicycle.getStationId().getStationId()}"></h4>
+            </div>
+
+            <h6 th:text="${bicycle.getStationId().getAddress()}">25 Nguyễn Bá Lân, Bắc Mỹ An, Ngũ Hành Sơn, Đà Nẵng</h6>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <hr>
+    <h1 class="text-primary" th:text="${bicycle.getBicycleId()}"></h1>
+    <h6>Mã xe</h6>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h6>Tài khoản chính</h6>
+            <p><span th:text="${user.balance}"></span> đ</p>
+        </div>
+        <div class="col border-start">
+            <h6>Điểm tích luỹ</h6>
+            <p><span th:text="${user.point}"></span> điểm</p>
+        </div>
+    </div>
+    <hr>
+    <div class="text-start">
+        <h6>Bảng giá áp dụng</h6>
+        <p>5.000đ cho 30 phút đầu tiên, nếu vượt quá quy định mỗi 6 phút vượt qua tiếp theo tính thêm 1.000đ</p>
+    </div>
+    <hr>
+
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" style="border-radius: 5px; margin-top:400px;">Đặt xe</button>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/5a213e1813.js" crossorigin="anonymous"></script>
+</body>
+</html>

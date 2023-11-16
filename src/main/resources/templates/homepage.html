@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage</title>
+  <link rel="stylesheet" href="/style/map.css">
+  <link rel="stylesheet" href="/style/home.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<style>
+  h5{
+    margin-left: 20px;
+  }
+</style>
+<body>
+<div id="container" th:object="${user}">
+  <div id="user">
+    <i class="fa-solid fa-circle-user" id="iUser"></i>
+    <p id="pUser" th:text="${user.getFullName()}"></p>
+  </div>
+
+  <div id="find" class="border-bottom shadow-sm" style="margin-top: 40px;">
+    <a style="text-decoration: none;" th:href="@{'/'+${userID}+'/station'}"><button style="margin: 13px auto;border-radius: 7px;">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <p>Find station...</p>
+    </button></a>
+  </div>
+
+  <div style="margin: 10px 20px; padding:10px; border: 1px solid lightgray; border-radius:5px;">
+    <div id="walletInfo">
+      <div style="border-right:0.5px solid lightgray;">
+        <h6>Balance</h6>
+        <span th:text="${user.getBalance()}"></span>
+      </div>
+      <div>
+        <h6>Points</h6>
+        <span th:text="${user.getPoint()}"></span>
+      </div>
+    </div>
+    <a id="addMoney"href="#"><i class="fa-solid fa-wallet"></i> Add money</a>
+  </div>
+
+  <h5>Event</h5>
+  <img src="https://img.freepik.com/free-vector/flat-world-bicycle-day-background_23-2149385560.jpg?w=1060&t=st=1690647394~exp=1690647994~hmac=008c42089e3805ae536d28ad852c3de4e10f47098d703f69f8b725b7b2b4c1f7" width="369" style="margin: 0 20px 20px 20px; border-radius:5px;">
+  <h5>News</h5>
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" style="margin: 0 20px;width:369px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://img.freepik.com/premium-vector/family-city-bike-ride-flat-cartoon-illustration_81534-1015.jpg?w=2000" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://img.freepik.com/premium-vector/people-riding-bicycle-cartoon-active-characters-city-park-riding-bike-active-healthy-lifestyle-concept_176516-1129.jpg?w=2000" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://img.freepik.com/premium-vector/international-family-couple-with-kids-ride-bikes_82574-10230.jpg?w=2000" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <footer class="row align-items-end text-center border shadow-lg" id="abc">
+    <a class="col" id="a1" th:href="@{'/'+${user.getId()}+'/homepage'}">
+      <i class="fa-solid fa-house" id="i1"></i>
+      <p id="p1">Home</p>
+    </a>
+    <a class="col" id="a2" th:href="@{'/'+${userID}+'/map'}">
+      <i class="fa-solid fa-map-location-dot" id="i2"></i>
+      <p id="p2">Location</p>
+    </a>
+    <a class="col" id="a3" th:href="@{'/'+${userID}+'/code'}">
+      <i class="fa-solid fa-barcode"></i>
+      <p>Code</p>
+    </a>
+    <a class="col" id="a4" th:href="@{'/'+${user.getId()}+'/wallet'}">
+      <i class="fa-solid fa-wallet"></i>
+      <p>Wallet</p>
+    </a>
+    <a class="col" id="a5" th:href="@{'/'+${user.getId()}+'/expand'}">
+      <i class="fa-solid fa-bars"></i>
+      <p>Expand</p>
+    </a>
+  </footer>
+</div>
+<script src="https://kit.fontawesome.com/5a213e1813.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
